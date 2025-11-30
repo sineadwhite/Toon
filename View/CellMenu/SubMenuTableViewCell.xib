@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" restorationIdentifier="SubMenuTableViewCell" selectionStyle="default" indentationWidth="10" rowHeight="72" id="KGk-i7-Jjw" customClass="SubMenuTableViewCell" customModule="OnWP" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="319" height="72"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="319" height="72"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_category" translatesAutoresizingMaskIntoConstraints="NO" id="Adt-hd-9qh">
+                        <rect key="frame" x="20" y="26" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="Adt-hd-9qh" secondAttribute="height" multiplier="1:1" id="Tfh-Sr-Bjf"/>
+                            <constraint firstAttribute="width" constant="20" id="VRu-V5-NWE"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kJD-Eo-deZ">
+                        <rect key="frame" x="60" y="27" width="249" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2g8-dp-rNW">
+                        <rect key="frame" x="0.0" y="0.0" width="319" height="72"/>
+                        <connections>
+                            <action selector="onClickSubMenu:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="gJn-iR-Jm9"/>
+                        </connections>
+                    </button>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ueL-c3-GKM">
+                        <rect key="frame" x="30" y="71.5" width="259" height="0.5"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="0.5" id="uaP-qW-oOz"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="kJD-Eo-deZ" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="56e-hC-aTZ"/>
+                    <constraint firstAttribute="bottom" secondItem="ueL-c3-GKM" secondAttribute="bottom" id="C9I-AS-zO6"/>
+                    <constraint firstAttribute="trailing" secondItem="kJD-Eo-deZ" secondAttribute="trailing" constant="10" id="QVz-TE-LjX"/>
+                    <constraint firstItem="Adt-hd-9qh" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="SXg-nl-JJN"/>
+                    <constraint firstItem="kJD-Eo-deZ" firstAttribute="leading" secondItem="Adt-hd-9qh" secondAttribute="trailing" constant="20" id="UpO-UZ-xuP"/>
+                    <constraint firstAttribute="trailing" secondItem="ueL-c3-GKM" secondAttribute="trailing" constant="30" id="Vci-3z-kNx"/>
+                    <constraint firstItem="ueL-c3-GKM" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="30" id="VtR-xm-byz"/>
+                    <constraint firstAttribute="trailing" secondItem="2g8-dp-rNW" secondAttribute="trailing" id="Y3X-Le-CJO"/>
+                    <constraint firstItem="Adt-hd-9qh" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="f99-jc-g8I"/>
+                    <constraint firstItem="2g8-dp-rNW" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="iu9-S6-pLm"/>
+                    <constraint firstItem="2g8-dp-rNW" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="wSf-y8-3sf"/>
+                    <constraint firstAttribute="bottom" secondItem="2g8-dp-rNW" secondAttribute="bottom" id="wup-VC-1PT"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="imgSubMenu" destination="Adt-hd-9qh" id="tmC-tJ-XHt"/>
+                <outlet property="lblSubMenu" destination="kJD-Eo-deZ" id="2EY-NA-tvl"/>
+            </connections>
+            <point key="canvasLocation" x="136.95652173913044" y="135.26785714285714"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="icon_category" width="22" height="22"/>
+    </resources>
+</document>

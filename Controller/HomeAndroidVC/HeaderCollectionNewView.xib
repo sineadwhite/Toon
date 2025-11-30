@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="HeaderCollectionNewView" id="U6b-Vx-4bR" customClass="HeaderCollectionNewView" customModule="OnWP" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZKb-Nk-dkQ">
+                    <rect key="frame" x="5" y="0.0" width="365" height="150"/>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1V8-7B-8uo">
+                    <rect key="frame" x="5" y="0.0" width="365" height="150"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.047303082189999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                            <real key="value" value="0.25"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="0.0"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vnD-Bn-SUc">
+                    <rect key="frame" x="15" y="123" width="350" height="17"/>
+                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="13"/>
+                    <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <constraints>
+                <constraint firstItem="VXr-Tz-HHm" firstAttribute="bottom" secondItem="ZKb-Nk-dkQ" secondAttribute="bottom" id="0A1-3L-PGT"/>
+                <constraint firstItem="ZKb-Nk-dkQ" firstAttribute="leading" secondItem="VXr-Tz-HHm" secondAttribute="leading" constant="5" id="Da0-aj-q0c"/>
+                <constraint firstItem="ZKb-Nk-dkQ" firstAttribute="top" secondItem="U6b-Vx-4bR" secondAttribute="top" id="Kpa-dd-j0a"/>
+                <constraint firstItem="1V8-7B-8uo" firstAttribute="leading" secondItem="VXr-Tz-HHm" secondAttribute="leading" constant="5" id="R8a-I0-Zoa"/>
+                <constraint firstItem="vnD-Bn-SUc" firstAttribute="leading" secondItem="VXr-Tz-HHm" secondAttribute="leading" constant="15" id="TGw-Mb-yef"/>
+                <constraint firstItem="1V8-7B-8uo" firstAttribute="top" secondItem="U6b-Vx-4bR" secondAttribute="top" id="XTC-ka-act"/>
+                <constraint firstItem="VXr-Tz-HHm" firstAttribute="bottom" secondItem="vnD-Bn-SUc" secondAttribute="bottom" constant="10" id="aSI-KB-g1s"/>
+                <constraint firstItem="VXr-Tz-HHm" firstAttribute="bottom" secondItem="1V8-7B-8uo" secondAttribute="bottom" id="dwV-Hg-pYT"/>
+                <constraint firstItem="VXr-Tz-HHm" firstAttribute="trailing" secondItem="vnD-Bn-SUc" secondAttribute="trailing" constant="10" id="gEO-bo-OXB"/>
+                <constraint firstItem="VXr-Tz-HHm" firstAttribute="trailing" secondItem="1V8-7B-8uo" secondAttribute="trailing" constant="5" id="hzB-Uc-DSH"/>
+                <constraint firstItem="VXr-Tz-HHm" firstAttribute="trailing" secondItem="ZKb-Nk-dkQ" secondAttribute="trailing" constant="5" id="nUp-yX-Jip"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="VXr-Tz-HHm"/>
+            <connections>
+                <outlet property="imgFeatureNews" destination="ZKb-Nk-dkQ" id="CTL-zm-c9w"/>
+                <outlet property="lblNews" destination="vnD-Bn-SUc" id="vZp-Gf-zlz"/>
+                <outlet property="viewGradient" destination="1V8-7B-8uo" id="Wfi-LM-Jt0"/>
+            </connections>
+            <point key="canvasLocation" x="132" y="154"/>
+        </collectionReusableView>
+    </objects>
+</document>

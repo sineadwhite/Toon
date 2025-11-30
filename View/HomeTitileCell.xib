@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="HomeTitileCell" customModule="Ontin" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qSA-Nk-9Jd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Feature News" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9cq-aV-6M1">
+                                <rect key="frame" x="16" y="8" width="157" height="44"/>
+                                <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="21"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HLP-M6-H7N">
+                                <rect key="frame" x="329" y="9.5" width="30" height="42.5"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
+                                <state key="normal" title="ALL"/>
+                                <connections>
+                                    <action selector="clickAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="hC4-7T-hTD"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.93725490199999995" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="9cq-aV-6M1" secondAttribute="bottom" constant="8" id="5mv-Zp-M1T"/>
+                            <constraint firstAttribute="height" constant="60" id="aBv-hC-CWt"/>
+                            <constraint firstAttribute="trailing" secondItem="HLP-M6-H7N" secondAttribute="trailing" constant="16" id="cMC-AH-YqS"/>
+                            <constraint firstItem="HLP-M6-H7N" firstAttribute="top" secondItem="qSA-Nk-9Jd" secondAttribute="top" constant="9.5" id="dMI-2e-DrP"/>
+                            <constraint firstItem="9cq-aV-6M1" firstAttribute="leading" secondItem="qSA-Nk-9Jd" secondAttribute="leading" constant="16" id="ih3-EA-eyc"/>
+                            <constraint firstAttribute="bottom" secondItem="HLP-M6-H7N" secondAttribute="bottom" constant="8" id="oxh-xU-nQi"/>
+                            <constraint firstItem="9cq-aV-6M1" firstAttribute="top" secondItem="qSA-Nk-9Jd" secondAttribute="top" constant="8" id="vHI-vN-O4I"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                <color key="value" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                <real key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="qSA-Nk-9Jd" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="ATb-TN-Bzx"/>
+                    <constraint firstAttribute="bottom" secondItem="qSA-Nk-9Jd" secondAttribute="bottom" id="RSp-kN-efc"/>
+                    <constraint firstItem="qSA-Nk-9Jd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="h8d-u5-I0E"/>
+                    <constraint firstAttribute="trailing" secondItem="qSA-Nk-9Jd" secondAttribute="trailing" id="vJg-mE-rdV"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="btnAll" destination="HLP-M6-H7N" id="FZH-2z-hc6"/>
+                <outlet property="lblTitle" destination="9cq-aV-6M1" id="kXV-cQ-Mat"/>
+            </connections>
+            <point key="canvasLocation" x="133" y="154"/>
+        </tableViewCell>
+    </objects>
+</document>

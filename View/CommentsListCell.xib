@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="cell" rowHeight="87" id="KGk-i7-Jjw" customClass="CommentsListCell" customModule="WPNews" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="87"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="86.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hsW-G4-jEE">
+                        <rect key="frame" x="16" y="8" width="288" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="LEr-R2-vIS"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
+                        <color key="textColor" red="0.0" green="0.47843137254901957" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b9j-2D-iEO">
+                        <rect key="frame" x="16" y="32" width="272" height="18.5"/>
+                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="13"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KeZ-gf-t8Y">
+                        <rect key="frame" x="16" y="50.5" width="272" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="AOi-V3-o05"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="12"/>
+                        <color key="textColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eEm-5c-Gz2">
+                        <rect key="frame" x="0.0" y="86.5" width="320" height="0.0"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.93725490199999995" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="0.5" id="JLJ-BW-AKY"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="eEm-5c-Gz2" secondAttribute="bottom" id="0TI-Ii-hxV"/>
+                    <constraint firstItem="hsW-G4-jEE" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="45q-dN-OMW"/>
+                    <constraint firstAttribute="trailing" secondItem="eEm-5c-Gz2" secondAttribute="trailing" id="ArH-mM-Jqk"/>
+                    <constraint firstAttribute="trailing" secondItem="hsW-G4-jEE" secondAttribute="trailing" constant="16" id="Ayo-SH-au0"/>
+                    <constraint firstItem="hsW-G4-jEE" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="HOx-0c-v6S"/>
+                    <constraint firstItem="b9j-2D-iEO" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="K3E-Gx-Fdd"/>
+                    <constraint firstItem="eEm-5c-Gz2" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Kan-zN-zrp"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="KeZ-gf-t8Y" secondAttribute="trailing" constant="16" id="T9R-tB-h95"/>
+                    <constraint firstItem="b9j-2D-iEO" firstAttribute="top" secondItem="hsW-G4-jEE" secondAttribute="bottom" constant="4" id="gyX-8h-Ypt"/>
+                    <constraint firstAttribute="bottom" secondItem="KeZ-gf-t8Y" secondAttribute="bottom" constant="16" id="i1b-s2-2aG"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="b9j-2D-iEO" secondAttribute="trailing" constant="16" id="pf3-QP-ztD"/>
+                    <constraint firstItem="KeZ-gf-t8Y" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="tpD-tO-QWQ"/>
+                    <constraint firstItem="KeZ-gf-t8Y" firstAttribute="top" secondItem="b9j-2D-iEO" secondAttribute="bottom" id="y4t-mr-KSE"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="lblComment" destination="b9j-2D-iEO" id="QCz-hg-SHQ"/>
+                <outlet property="lblDate" destination="KeZ-gf-t8Y" id="bqe-he-nvR"/>
+                <outlet property="lblName" destination="hsW-G4-jEE" id="GAM-8Q-Sr4"/>
+            </connections>
+            <point key="canvasLocation" x="25" y="73.5"/>
+        </tableViewCell>
+    </objects>
+</document>
