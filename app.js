@@ -38,17 +38,6 @@ function filterDestinations(query) {
 }
 
 /**
- * Sanitize text to prevent XSS
- * @param {string} text - Text to sanitize
- * @returns {string} Sanitized text
- */
-function sanitizeText(text) {
-    const div = document.createElement('div');
-    div.textContent = text;
-    return div.innerHTML;
-}
-
-/**
  * Render search results to the DOM
  * @param {Array} results - Array of destination objects
  * @param {string} query - The search query for display
@@ -61,22 +50,33 @@ function renderResults(results, query) {
     }
     
     if (results.length === 0) {
-        searchResults.innerHTML = `
-            <div class="no-results">
-                <h3>No destinations found</h3>
-                <p>Try searching for a different city or attraction.</p>
-            </div>
-        `;
+        const noResultsDiv = document.createElement('div');
+        noResultsDiv.className = 'no-results';
+        
+        const heading = document.createElement('h3');
+        heading.textContent = 'No destinations found';
+        
+        const message = document.createElement('p');
+        message.textContent = 'Try searching for a different city or attraction.';
+        
+        noResultsDiv.appendChild(heading);
+        noResultsDiv.appendChild(message);
+        searchResults.appendChild(noResultsDiv);
         return;
     }
     
     results.forEach(destination => {
         const card = document.createElement('article');
         card.className = 'result-card';
-        card.innerHTML = `
-            <h3>${sanitizeText(destination.name)}</h3>
-            <p>${sanitizeText(destination.description)}</p>
-        `;
+        
+        const title = document.createElement('h3');
+        title.textContent = destination.name;
+        
+        const description = document.createElement('p');
+        description.textContent = destination.description;
+        
+        card.appendChild(title);
+        card.appendChild(description);
         searchResults.appendChild(card);
     });
 }
