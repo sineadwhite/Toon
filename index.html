@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toon - Travel App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1 class="logo">Toon</h1>
+            <p class="tagline">Discover Your Next Adventure</p>
+        </div>
+    </header>
+    
+    <main class="main">
+        <section class="search-section">
+            <div class="container">
+                <form class="search-form" id="searchForm" role="search">
+                    <label for="searchInput" class="visually-hidden">Search destinations</label>
+                    <input 
+                        type="search" 
+                        id="searchInput" 
+                        class="search-input" 
+                        placeholder="Search destinations, cities, or attractions..."
+                        aria-label="Search destinations"
+                    >
+                    <button type="submit" class="search-button" aria-label="Search">
+                        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <path d="m21 21-4.35-4.35"></path>
+                        </svg>
+                        Search
+                    </button>
+                </form>
+            </div>
+        </section>
+        
+        <section class="results-section" id="resultsSection">
+            <div class="container">
+                <div id="searchResults" class="search-results"></div>
+            </div>
+        </section>
+    </main>
+    
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Toon Travel App. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <script src="app.js"></script>
+</body>
+</html>
