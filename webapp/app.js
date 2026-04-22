@@ -22,6 +22,8 @@ let map;
 let userMarker;
 let watchId;
 let listings = [];
+let trackingStarting = false;
+let trackingActive = false;
 const listingMarkers = new Map();
 const announcedListings = new Set();
 
@@ -117,7 +119,10 @@ async function fetchListings(position) {
   url.searchParams.set("lat", String(position.lat));
   url.searchParams.set("lng", String(position.lng));
 
-  const response = await fetch(url.toString());
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), 10000);
+  const response = await fetch(url.toString(), { signal: controller.signal })
+    .finally(() => clearTimeout(timeoutId));
   if (!response.ok) {
     throw new Error(`MLS API request failed: ${response.status}`);
   }
@@ -200,6 +205,11 @@ async function updateListingsNear(position) {
 }
 
 async function startTracking() {
+  if (trackingStarting || trackingActive) {
+    setStatus("Tracking is already active.");
+    return;
+  }
+
   const apiKey = mapsApiKeyInput.value.trim();
   if (!apiKey) {
     setStatus("Enter a Google Maps API key.");
@@ -212,12 +222,20 @@ async function startTracking() {
   }
 
   setStatus("Loading map...");
+  trackingStarting = true;
+  startButton.disabled = true;
 
   try {
     await loadGoogleMaps(apiKey);
   } catch (error) {
+    trackingStarting = false;
+    startButton.disabled = false;
     setStatus(error.message);
     return;
+  }
+
+  if (watchId !== undefined) {
+    navigator.geolocation.clearWatch(watchId);
   }
 
   navigator.geolocation.getCurrentPosition(async ({ coords }) => {
@@ -227,17 +245,17 @@ async function startTracking() {
     }
     updateUserPosition(initialPosition);
     await updateListingsNear(initialPosition);
+    trackingStarting = false;
+    trackingActive = true;
     setStatus("Tracking started.");
   }, () => {
+    trackingStarting = false;
+    startButton.disabled = false;
     setStatus("Unable to access your location.");
   }, {
     enableHighAccuracy: true,
     timeout: 12000
   });
-
-  if (watchId !== undefined) {
-    navigator.geolocation.clearWatch(watchId);
-  }
 
   watchId = navigator.geolocation.watchPosition(async ({ coords }) => {
     const current = { lat: coords.latitude, lng: coords.longitude };

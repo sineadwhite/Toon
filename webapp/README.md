@@ -50,4 +50,5 @@ If no endpoint is provided, the app uses built-in sample listing data.
 ## Notes
 
 - Browser geolocation and text-to-speech permissions must be allowed.
-- Real NY MLS data access usually requires a licensed feed (for example via REBNY/RLS or a broker-approved data provider) and a backend that handles authentication and compliance.
+- Lock down your Google Maps API key with HTTP referrer restrictions in Google Cloud Console.
+- Real NY MLS data access usually requires a licensed feed (for example via the Real Estate Board of New York/Residential Listing Service (REBNY/RLS) or a broker-approved data provider) and a backend that handles authentication and compliance.
