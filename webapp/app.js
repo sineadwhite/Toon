@@ -1,5 +1,8 @@
 const DEFAULT_RADIUS_METERS = 120;
 const LISTINGS_REFRESH_MS = 15000;
+const FETCH_TIMEOUT_MS = 10000;
+const GEOLOCATION_INITIAL_TIMEOUT_MS = 12000;
+const GEOLOCATION_WATCH_TIMEOUT_MS = 10000;
 const DEFAULT_MOCK_LISTINGS = [
   {
     id: "mock-1",
@@ -92,7 +95,7 @@ function priceLabel(price) {
 }
 
 function stableIdFromListing(raw) {
-  const source = `${raw.address ?? ""}|${raw.lat ?? ""}|${raw.lng ?? ""}|${raw.price ?? ""}`;
+  const source = `${raw.address ?? ""}|${raw.lat ?? ""}|${raw.lng ?? ""}`;
   let hash = 0;
   for (let i = 0; i < source.length; i += 1) {
     hash = (hash * 31 + source.charCodeAt(i)) >>> 0;
@@ -123,7 +126,7 @@ async function fetchListings(position) {
   url.searchParams.set("lng", String(position.lng));
 
   const controller = new AbortController();
-  const timeoutId = setTimeout(() => controller.abort(), 10000);
+  const timeoutId = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS);
   const response = await fetch(url.toString(), { signal: controller.signal })
     .finally(() => clearTimeout(timeoutId));
   if (!response.ok) {
@@ -275,7 +278,7 @@ async function startTracking() {
     setStatus("Unable to access your location.");
   }, {
     enableHighAccuracy: true,
-    timeout: 12000
+    timeout: GEOLOCATION_INITIAL_TIMEOUT_MS
   });
 
   watchId = navigator.geolocation.watchPosition(async ({ coords }) => {
@@ -287,7 +290,7 @@ async function startTracking() {
   }, {
     enableHighAccuracy: true,
     maximumAge: 5000,
-    timeout: 10000
+    timeout: GEOLOCATION_WATCH_TIMEOUT_MS
   });
 }
 
