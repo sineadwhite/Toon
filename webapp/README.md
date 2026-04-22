@@ -14,7 +14,7 @@ Serve the folder from any local web server, then open `index.html` in a browser 
 Example:
 
 ```bash
-cd /home/runner/work/Toon/Toon/webapp
+cd webapp
 python3 -m http.server 8080
 ```
 

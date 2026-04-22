@@ -13,7 +13,7 @@ const DEFAULT_MOCK_LISTINGS = [
     address: "450 W 31st St, New York, NY",
     price: 1325000,
     lat: 40.7514,
-    lng: -74.0007,
+    lng: -73.9968,
     status: "for_sale"
   }
 ];
