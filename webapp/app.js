@@ -86,9 +86,18 @@ function priceLabel(price) {
   });
 }
 
+function stableIdFromListing(raw) {
+  const source = `${raw.address ?? ""}|${raw.lat ?? ""}|${raw.lng ?? ""}|${raw.price ?? ""}`;
+  let hash = 0;
+  for (let i = 0; i < source.length; i += 1) {
+    hash = (hash * 31 + source.charCodeAt(i)) >>> 0;
+  }
+  return `generated-${hash.toString(16)}`;
+}
+
 function normalizeListing(raw) {
   return {
-    id: String(raw.id ?? `${raw.address}-${raw.lat}-${raw.lng}`),
+    id: String(raw.id ?? stableIdFromListing(raw)),
     address: String(raw.address ?? "Unknown address"),
     price: Number(raw.price ?? 0),
     lat: Number(raw.lat),
