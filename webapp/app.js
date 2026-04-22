@@ -1,4 +1,5 @@
 const DEFAULT_RADIUS_METERS = 120;
+const LISTINGS_REFRESH_MS = 15000;
 const DEFAULT_MOCK_LISTINGS = [
   {
     id: "mock-1",
@@ -24,6 +25,8 @@ let watchId;
 let listings = [];
 let trackingStarting = false;
 let trackingActive = false;
+let listingsFetchInFlight = false;
+let lastListingsFetchAt = 0;
 const listingMarkers = new Map();
 const announcedListings = new Set();
 
@@ -194,13 +197,31 @@ function updateUserPosition(position) {
   map.setCenter(position);
 }
 
-async function updateListingsNear(position) {
+async function updateListingsNear(position, { force = false } = {}) {
+  if (!force) {
+    if (listingsFetchInFlight) {
+      return;
+    }
+    if (Date.now() - lastListingsFetchAt < LISTINGS_REFRESH_MS) {
+      checkNearbyListings(position);
+      return;
+    }
+  }
+
+  listingsFetchInFlight = true;
   try {
     listings = await fetchListings(position);
+    lastListingsFetchAt = Date.now();
     syncListingMarkers();
     checkNearbyListings(position);
   } catch (error) {
-    setStatus(error.message);
+    if (error.name === "AbortError") {
+      setStatus("MLS API request timed out.");
+    } else {
+      setStatus(error.message);
+    }
+  } finally {
+    listingsFetchInFlight = false;
   }
 }
 
@@ -244,7 +265,7 @@ async function startTracking() {
       initMap(initialPosition);
     }
     updateUserPosition(initialPosition);
-    await updateListingsNear(initialPosition);
+    await updateListingsNear(initialPosition, { force: true });
     trackingStarting = false;
     trackingActive = true;
     setStatus("Tracking started.");
