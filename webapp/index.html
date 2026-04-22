@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NY Listings Drive-By Announcer</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <h1>NY Listings Drive-By Announcer</h1>
+      <p>Nearby for-sale homes are announced while location tracking is active.</p>
+    </header>
+
+    <section class="controls">
+      <label for="mapsApiKey">Google Maps API Key</label>
+      <input id="mapsApiKey" type="password" placeholder="Paste your API key" />
+      <label for="mlsApiUrl">NY MLS Feed URL</label>
+      <input id="mlsApiUrl" type="url" placeholder="https://your-api.example.com/listings" />
+      <button id="startButton" type="button">Start Tracking</button>
+      <p id="status">Waiting to start.</p>
+    </section>
+
+    <section class="map-wrap">
+      <div id="map" aria-label="Map showing your location and nearby listings"></div>
+    </section>
+  </main>
+
+  <script src="./app.js"></script>
+</body>
+</html>
